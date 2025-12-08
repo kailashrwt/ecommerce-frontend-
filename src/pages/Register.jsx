@@ -61,7 +61,7 @@ export default function Register({ theme }) {
         console.log('Form data being sent:', formData);
 
         try {
-            const response = await fetch('http://localhost:6060/api/client/register', {
+            const response = await fetch('https://ecommerce-backend-s1l7.onrender.com/api/client/register', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
