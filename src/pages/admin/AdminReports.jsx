@@ -14,7 +14,7 @@ const AdminReports = ({ theme = "light" }) => {
 
   const fetchReport = async () => {
     try {
-      const res = await axios.get("http://localhost:6060/api/admin/reports");
+      const res = await axios.get("https://ecommerce-backend-s1l7.onrender.com/api/admin/reports");
       if (res.data.success) {
         setReport(res.data.report);
       }
