@@ -12,7 +12,7 @@ const ProductDetails = () => {
   useEffect(() => {
     const loadProduct = async () => {
       try {
-        const res = await axios.get(`http://localhost:6060/api/products/${id}`);
+        const res = await axios.get(`https://ecommerce-backend-s1l7.onrender.com/api/products/${id}`);
         if (res.data.success) {
           setProduct(res.data.product);
         }
@@ -33,7 +33,7 @@ const ProductDetails = () => {
 
       {/* PRODUCT IMAGE */}
       <img
-        src={`http://localhost:6060${product.image}`}
+        src={`https://ecommerce-backend-s1l7.onrender.com${product.image}`}
         alt={product.name}
         className="w-full max-h-[350px] sm:max-h-[450px] object-cover rounded-xl shadow-md"
       />
