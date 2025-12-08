@@ -14,7 +14,7 @@ const BerryMinimum = ({ theme = "light" }) => {
         const fetchBerry = async () => {
             try {
                 const res = await axios.get(
-                    "http://localhost:6060/api/products/category/Berry Minimum"
+                    "https://ecommerce-backend-s1l7.onrender.com/api/products/category/Berry Minimum"
                 );
 
                 if (res.data.success) {
@@ -68,7 +68,7 @@ const BerryMinimum = ({ theme = "light" }) => {
                         >
                             {/* Product Image */}
                             <img
-                                src={`http://localhost:6060${item.image}`}
+                                src={`https://ecommerce-backend-s1l7.onrender.com${item.image}`}
                                 alt={item.name}
                                 className="w-full h-48 sm:h-56 md:h-60 object-cover rounded-lg mb-4"
                             />
