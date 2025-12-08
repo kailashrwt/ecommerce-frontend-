@@ -12,7 +12,7 @@ const MangeOrders = ({ theme }) => {
 
   const fetchOrders = async () => {
     try {
-      const res = await axios.get("http://localhost:6060/api/admin/order");
+      const res = await axios.get("https://ecommerce-backend-s1l7.onrender.com/api/admin/order");
       if (res.data.success) {
         setOrders(res.data.orders);
       }
@@ -23,7 +23,7 @@ const MangeOrders = ({ theme }) => {
 
   const updateStatus = async (id, status) => {
     try {
-      await axios.put(`http://localhost:6060/api/admin/order/${id}`, { status });
+      await axios.put(`https://ecommerce-backend-s1l7.onrender.com/api/admin/order/${id}`, { status });
       alert("Status updated");
       fetchOrders();
     } catch (err) {
@@ -35,7 +35,7 @@ const MangeOrders = ({ theme }) => {
     if (!window.confirm("Delete this order?")) return;
 
     try {
-      await axios.delete(`http://localhost:6060/api/admin/order/${id}`);
+      await axios.delete(`https://ecommerce-backend-s1l7.onrender.com/api/admin/order/${id}`);
       alert("Order deleted");
       setOrders(orders.filter((o) => o._id !== id));
     } catch (err) {
