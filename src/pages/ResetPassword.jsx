@@ -42,7 +42,7 @@ const ResetPassword = () => {
 
         try {
             const response = await axios.post(
-                `http://localhost:6060/api/auth/reset-password/${token}`,
+                `https://ecommerce-backend-s1l7.onrender.com/api/auth/reset-password/${token}`,
                 { password: formData.password, confirmPassword: formData.confirmPassword }
             );
 
