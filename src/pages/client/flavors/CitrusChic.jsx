@@ -14,7 +14,7 @@ const CitrusChic = ({ theme = "light" }) => {
     const fetchCitrusChic = async () => {
       try {
         const res = await axios.get(
-          "http://localhost:6060/api/products/category/Citrus Chic"
+          "https://ecommerce-backend-s1l7.onrender.com/api/products/category/Citrus Chic"
         );
 
         if (res.data.success) {
@@ -71,7 +71,7 @@ const CitrusChic = ({ theme = "light" }) => {
             >
               {/* Product Image */}
               <img
-                src={`http://localhost:6060${item.image}`}
+                src={`https://ecommerce-backend-s1l7.onrender.com${item.image}`}
                 alt={item.name}
                 className="w-full h-48 sm:h-56 md:h-60 object-cover rounded-lg mb-4"
               />
