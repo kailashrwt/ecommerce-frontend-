@@ -18,7 +18,7 @@ const ManageCustomers = ({ theme }) => {
   // Fetch all customers
   const fetchCustomers = async () => {
     try {
-      const res = await axios.get("http://localhost:6060/api/admin/customers");
+      const res = await axios.get("https://ecommerce-backend-s1l7.onrender.com/api/admin/customers");
       if (res.data.success) {
         setCustomers(res.data.customers);
       }
@@ -30,7 +30,7 @@ const ManageCustomers = ({ theme }) => {
   // Block / Unblock user
   const toggleStatus = async (id) => {
     try {
-      const res = await axios.put(`http://localhost:6060/api/admin/customers/toggle/${id}`);
+      const res = await axios.put(`https://ecommerce-backend-s1l7.onrender.com/api/admin/customers/toggle/${id}`);
       alert(res.data.message);
       fetchCustomers();
     } catch (err) {
@@ -43,7 +43,7 @@ const ManageCustomers = ({ theme }) => {
     if (!window.confirm("Are you sure you want to delete this customer?")) return;
 
     try {
-      await axios.delete(`http://localhost:6060/api/admin/customers/${id}`);
+      await axios.delete(`https://ecommerce-backend-s1l7.onrender.com/api/admin/customers/${id}`);
       alert("Customer deleted");
       setCustomers(customers.filter((u) => u._id !== id));
     } catch (err) {
