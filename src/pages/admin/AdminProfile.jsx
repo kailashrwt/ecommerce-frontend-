@@ -21,7 +21,7 @@ const AdminProfile = ({ theme = "light", currentUser, onLogout }) => {
   useEffect(() => {
     const fetchOrders = async () => {
       try {
-        const res = await axios.get("http://localhost:6060/api/admin/order");
+        const res = await axios.get("https://ecommerce-backend-s1l7.onrender.com/api/admin/order");
         if (res.data.success) {
           const orders = res.data.orders;
 

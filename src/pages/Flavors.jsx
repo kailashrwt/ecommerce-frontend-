@@ -27,7 +27,7 @@ const Flavors = ({ theme = "light" }) => {
         // Fetch each flavor category
         for (const flavor of flavorList) {
           const res = await axios.get(
-            `http://localhost:6060/api/products/category/${flavor.label}`
+            `https://ecommerce-backend-s1l7.onrender.com/api/products/category/${flavor.label}`
           );
 
           if (res.data.success) {
@@ -88,7 +88,7 @@ const Flavors = ({ theme = "light" }) => {
                 onClick={() => navigate(`/product/${item._id}`)}
               >
                 <img
-                  src={`http://localhost:6060${item.image}`}
+                  src={`https://ecommerce-backend-s1l7.onrender.com${item.image}`}
                   alt={item.name}
                   className="w-full h-40 object-cover rounded-lg mb-3"
                 />

@@ -14,7 +14,7 @@ const AddToCart = ({ productId, onAdded, setCartCount }) => {
 
       setLoading(true);
       const res = await axios.post(
-        "http://localhost:6060/api/cart/add",
+        "https://ecommerce-backend-s1l7.onrender.com/api/cart/add",
         { productId },
         { headers: { Authorization: `Bearer ${token}` } }
       );

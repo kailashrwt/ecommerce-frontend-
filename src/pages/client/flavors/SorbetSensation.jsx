@@ -13,7 +13,7 @@ const SorbetSensation = ({ theme = "light" }) => {
         const fetchSorbet = async () => {
             try {
                 const res = await axios.get(
-                    "http://localhost:6060/api/products/category/Sorbet Sensation"
+                    "https://ecommerce-backend-s1l7.onrender.com/api/products/category/Sorbet Sensation"
                 );
 
                 if (res.data.success) {
@@ -69,7 +69,7 @@ const SorbetSensation = ({ theme = "light" }) => {
                         >
                             {/* Image */}
                             <img
-                                src={`http://localhost:6060${item.image}`}
+                                src={`https://ecommerce-backend-s1l7.onrender.com${item.image}`}
                                 alt={item.name}
                                 className="w-full h-48 sm:h-56 md:h-60 object-cover rounded-lg mb-4"
                             />

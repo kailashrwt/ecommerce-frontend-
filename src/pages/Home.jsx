@@ -48,13 +48,13 @@ export default function Home({ theme }) {
           let url = "";
 
           if (c.type === "under2000") {
-            url = "http://localhost:6060/api/products/price/0/2000";
+            url = "https://ecommerce-backend-s1l7.onrender.com/api/products/price/0/2000";
           } else if (c.type === "2100to3500") {
-            url = "http://localhost:6060/api/products/price/2100/3500";
+            url = "https://ecommerce-backend-s1l7.onrender.com/api/products/price/2100/3500";
           } else if (c.type === "3600to5000") {
-            url = "http://localhost:6060/api/products/price/3600/5000";
+            url = "https://ecommerce-backend-s1l7.onrender.com/api/products/price/3600/5000";
           } else {
-            url = `http://localhost:6060/api/products/category/${c.type}`;
+            url = `https://ecommerce-backend-s1l7.onrender.com/api/products/category/${c.type}`;
           }
 
           const res = await axios.get(url);
@@ -263,7 +263,7 @@ export default function Home({ theme }) {
                   onClick={() => navigate(`/product/${item._id}`)}
                 >
                   <img
-                    src={`http://localhost:6060${item.image}`}
+                    src={`https://ecommerce-backend-s1l7.onrender.com${item.image}`}
                     alt=""
                     style={{
                       width: "100%",

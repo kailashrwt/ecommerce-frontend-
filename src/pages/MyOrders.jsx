@@ -12,7 +12,7 @@ const MyOrders = ({ theme }) => {
     const fetchOrders = async () => {
         try {
             const token = localStorage.getItem("token");
-            const res = await axios.get("http://localhost:6060/api/order/my-orders", {
+            const res = await axios.get("https://ecommerce-backend-s1l7.onrender.com/api/order/my-orders", {
                 headers: { Authorization: `Bearer ${token}` }
             });
 

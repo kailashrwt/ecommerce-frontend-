@@ -13,7 +13,7 @@ const Sale = ({ theme = "light" }) => {
         const fetchSaleProducts = async () => {
             try {
                 const res = await axios.get(
-                    "http://localhost:6060/api/products/price/0/2000"
+                    "https://ecommerce-backend-s1l7.onrender.com/api/products/price/0/2000"
                 );
 
                 if (res.data.success) {
@@ -76,7 +76,7 @@ const Sale = ({ theme = "light" }) => {
 
                             {/* IMAGE */}
                             <img
-                                src={`http://localhost:6060${item.image}`}
+                                src={`https://ecommerce-backend-s1l7.onrender.com${item.image}`}
                                 alt={item.name}
                                 className="w-full h-48 sm:h-56 md:h-60 object-cover rounded-lg mb-4"
                             />

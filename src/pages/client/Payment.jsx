@@ -21,7 +21,7 @@ const Payment = ({ theme = "light" }) => {
 
   const fetchProduct = async () => {
     try {
-      const res = await axios.get(`http://localhost:6060/api/products/${productId}`);
+      const res = await axios.get(`https://ecommerce-backend-s1l7.onrender.com/api/products/${productId}`);
       if (res.data.success) setProduct(res.data.product);
     } catch (err) {
       console.log("Product fetch error:", err);
@@ -52,7 +52,7 @@ const Payment = ({ theme = "light" }) => {
       return navigate("/login");
     }
 
-    const res = await axios.post("http://localhost:6060/api/payment/create-order", {
+    const res = await axios.post("https://ecommerce-backend-s1l7.onrender.com/api/payment/create-order", {
       amount: totalPrice,
     });
 
@@ -109,7 +109,7 @@ const Payment = ({ theme = "light" }) => {
         {/* NEW RESPONSIVE FIXED FLEX */}
         <div className="flex flex-col md:flex-row gap-6 md:gap-10 items-center md:items-start">
           <img
-            src={`http://localhost:6060${product.image}`}
+            src={`https://ecommerce-backend-s1l7.onrender.com${product.image}`}
             alt={product.name}
             className="w-40 h-40 sm:w-48 sm:h-48 md:w-56 md:h-56 object-cover rounded-lg shadow-md"
           />

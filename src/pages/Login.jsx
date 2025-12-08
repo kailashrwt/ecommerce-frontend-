@@ -28,7 +28,7 @@ const COLORS = {
   }
 };
 
-const API_URL = "http://localhost:6060/api/auth/login";
+const API_URL = "https://ecommerce-backend-s1l7.onrender.com/api/auth/login";
 
 const Login = ({ theme = "light", onLogin = null, onLogout = null, isLoggedIn = false, currentUser = null }) => {
 

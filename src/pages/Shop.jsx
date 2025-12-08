@@ -16,7 +16,7 @@ const Shop = ({ theme = "light", setCartCount }) => {
   useEffect(() => {
     const loadProducts = async () => {
       try {
-        const res = await axios.get("http://localhost:6060/api/products");
+        const res = await axios.get("https://ecommerce-backend-s1l7.onrender.com/api/products");
         if (res.data.success) {
           setProducts(res.data.products);
         }
@@ -42,7 +42,7 @@ const Shop = ({ theme = "light", setCartCount }) => {
 
     try {
       const res = await axios.post(
-        "http://localhost:6060/api/cart/add",
+        "https://ecommerce-backend-s1l7.onrender.com/api/cart/add",
         { productId },
         { headers: { Authorization: `Bearer ${token}` } }
       );

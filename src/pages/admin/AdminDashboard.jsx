@@ -14,7 +14,7 @@ const AdminDashboard = ({ theme }) => {
 
   const fetchDashboardData = async () => {
     try {
-      const res = await axios.get("http://localhost:6060/api/admin/reports");
+      const res = await axios.get("https://ecommerce-backend-s1l7.onrender.com/api/admin/reports");
       if (res.data.success) setReport(res.data.report);
     } catch (err) {
       console.error("Dashboard Fetch Error:", err);

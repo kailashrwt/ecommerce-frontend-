@@ -45,7 +45,7 @@ const Gifts = ({ theme = "light" }) => {
 
                 for (const range of giftCategories) {
                     const res = await axios.get(
-                        `http://localhost:6060/api/products/price/${range.min}/${range.max}`
+                        `https://ecommerce-backend-s1l7.onrender.com/api/products/price/${range.min}/${range.max}`
                     );
 
                     if (res.data.success) {
@@ -113,7 +113,7 @@ const Gifts = ({ theme = "light" }) => {
                                 }}
                             >
                                 <img
-                                    src={`http://localhost:6060${item.image}`}
+                                    src={`https://ecommerce-backend-s1l7.onrender.com${item.image}`}
                                     alt={item.name}
                                     className="w-full h-44 sm:h-48 md:h-52 object-cover rounded-lg mb-3"
                                 />

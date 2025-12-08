@@ -15,7 +15,7 @@ const CartPage = ({ setCartCount }) => {
         navigate("/login");
         return;
       }
-      const res = await axios.get("http://localhost:6060/api/cart/me", {
+      const res = await axios.get("https://ecommerce-backend-s1l7.onrender.com/api/cart/me", {
         headers: { Authorization: `Bearer ${token}` },
       });
       setItems(res.data.items || []);
@@ -35,7 +35,7 @@ const CartPage = ({ setCartCount }) => {
     try {
       const token = localStorage.getItem("token");
       const res = await axios.put(
-        "http://localhost:6060/api/cart/update",
+        "https://ecommerce-backend-s1l7.onrender.com/api/cart/update",
         { productId, quantity: qty },
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -50,7 +50,7 @@ const CartPage = ({ setCartCount }) => {
     try {
       const token = localStorage.getItem("token");
       const res = await axios.delete(
-        `http://localhost:6060/api/cart/item/${productId}`,
+        `https://ecommerce-backend-s1l7.onrender.com/api/cart/item/${productId}`,
         { headers: { Authorization: `Bearer ${token}` } }
       );
       setItems(res.data.items);
@@ -90,7 +90,7 @@ const CartPage = ({ setCartCount }) => {
               >
                 {/* IMAGE */}
                 <img
-                  src={`http://localhost:6060${it.image}`}
+                  src={`https://ecommerce-backend-s1l7.onrender.com${it.image}`}
                   alt={it.name}
                   className="w-24 h-24 sm:w-28 sm:h-28 rounded-lg object-cover"
                 />

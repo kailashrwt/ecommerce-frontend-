@@ -44,7 +44,7 @@ const handleSubmit = async (e) => {
       formData.append("description", form.description);
 
       const res = await axios.post(
-        "http://localhost:6060/api/products/add",
+        "https://ecommerce-backend-s1l7.onrender.com/api/products/add",
         formData,
         {
           headers: { "Content-Type": "multipart/form-data" },

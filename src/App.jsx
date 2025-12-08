@@ -205,7 +205,7 @@ export default function App() {
       if(!token) return setCartCount(0);
 
       try{
-        const res = await axios.get("http://localhost:6060/api/cart/me",{
+        const res = await axios.get("https://ecommerce-backend-s1l7.onrender.com/api/cart/me",{
           headers: {Authorization: `Bearer ${token}`},
         });
         setCartCount(res.data.totalItems || 0);
