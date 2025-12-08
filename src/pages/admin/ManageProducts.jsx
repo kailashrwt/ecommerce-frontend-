@@ -10,7 +10,7 @@ const ManageProducts = ({ theme = "light" }) => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const res = await axios.get("http://localhost:6060/api/products");
+        const res = await axios.get("https://ecommerce-backend-s1l7.onrender.com/api/products");
         if (res.data.success) setProducts(res.data.products);
       } catch (err) {
         console.log("Error:", err);
@@ -24,7 +24,7 @@ const ManageProducts = ({ theme = "light" }) => {
     if (!window.confirm("Are you sure you want to delete this product?")) return;
 
     try {
-      const res = await axios.delete(`http://localhost:6060/api/products/${id}`);
+      const res = await axios.delete(`https://ecommerce-backend-s1l7.onrender.com/api/products/${id}`);
       if (res.data.success) {
         alert("Product deleted!");
         setProducts(products.filter((i) => i._id !== id));
