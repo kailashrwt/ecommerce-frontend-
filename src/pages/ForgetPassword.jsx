@@ -56,7 +56,7 @@ const ForgetPassword = ({ theme }) => {
         try {
             console.log('Sending password reset request for:', email);
             
-            const response = await fetch('http://localhost:6060/api/auth/forgot-password', {
+            const response = await fetch('https://ecommerce-backend-s1l7.onrender.com/api/auth/forgot-password', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
