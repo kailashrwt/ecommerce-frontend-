@@ -23,7 +23,7 @@ const EditProduct = ({ theme = "light" }) => {
     useEffect(() => {
         const fetchProduct = async () => {
             try {
-                const res = await axios.get(`http://localhost:6060/api/products/${id}`);
+                const res = await axios.get(`https://ecommerce-backend-s1l7.onrender.com/api/products/${id}`);
                 if (res.data.success) {
                     const p = res.data.product;
                     setForm({
@@ -35,7 +35,7 @@ const EditProduct = ({ theme = "light" }) => {
                         image: null,
                         oldImage: p.image,
                     });
-                    setPreviewImage(`http://localhost:6060${p.image}`);
+                    setPreviewImage(`https://ecommerce-backend-s1l7.onrender.com${p.image}`);
                 }
             } catch (err) {
                 console.error("Fetch error:", err);
@@ -73,7 +73,7 @@ const EditProduct = ({ theme = "light" }) => {
             if (form.image) formData.append("image", form.image);
 
             const res = await axios.put(
-                `http://localhost:6060/api/products/${id}`,
+                `https://ecommerce-backend-s1l7.onrender.com/api/products/${id}`,
                 formData,
                 { headers: { "Content-Type": "multipart/form-data" } }
             );
