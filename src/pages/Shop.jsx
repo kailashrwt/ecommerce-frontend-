@@ -94,7 +94,7 @@ const Shop = ({ theme = "light", setCartCount }) => {
               {/* Image */}
               <div className="w-full h-56 overflow-hidden rounded-lg">
                 <img
-                  src={`http://localhost:6060${item.image}`}
+                  src={`https://ecommerce-backend-s1l7.onrender.com${item.image}`}
                   alt={item.name}
                   className="w-full h-full object-cover hover:scale-110 transition duration-300"
                 />
