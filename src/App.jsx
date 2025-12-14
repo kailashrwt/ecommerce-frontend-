@@ -94,7 +94,7 @@ const routes = [
   {path: "/gifts/gift2100to3500", component: Gift2100To3500},
   {path: "/gifts/gift3600to5000", component: Gift3600To5000},
   {path: "/sale", component: Sale},
-  {path: "my-orders", component: MyOrders},
+  {path: "/my-orders", component: MyOrders},
 ];
 
 // Layout Wrapper (Navbar + Footer + Role Protection)
