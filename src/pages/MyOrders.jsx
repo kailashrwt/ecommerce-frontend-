@@ -42,7 +42,7 @@ const MyOrders = ({ theme }) => {
                         {order.items.map((item, idx) => (
                             <div key={idx} className="flex gap-4 items-center">
                                 <img
-                                    src={`http://localhost:6060${item.product.image}`}
+                                    src={`https://ecommerce-backend-s1l7.onrender.com${item.product.image}`}
                                     className="w-16 h-16 rounded"
                                 />
                                 <div>
