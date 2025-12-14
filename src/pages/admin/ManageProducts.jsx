@@ -145,7 +145,7 @@ const ManageProducts = ({ theme = "light" }) => {
           >
             <div className="flex gap-4">
               <img
-                src={`http://localhost:6060${item.image}`}
+                src={`https://ecommerce-backend-s1l7.onrender.com${item.image}`}
                 className="w-20 h-20 rounded-lg object-cover shadow-sm"
               />
 
