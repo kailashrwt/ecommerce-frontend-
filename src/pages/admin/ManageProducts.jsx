@@ -92,7 +92,7 @@ const ManageProducts = ({ theme = "light" }) => {
               >
                 <td className="p-3">
                   <img
-                    src={`http://localhost:6060${item.image}`}
+                    src={`https://ecommerce-backend-s1l7.onrender.com${item.image}`}
                     className="w-14 h-14 rounded-lg object-cover shadow-sm"
                   />
                 </td>
