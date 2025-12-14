@@ -71,7 +71,7 @@ const Payment = ({ theme = "light" }) => {
 
       handler: async function (response) {
         await axios.post(
-          "http://localhost:6060/api/order/create",
+          "https://ecommerce-backend-s1l7.onrender.com/api/order/create",
           {
             productId,
             qty,
