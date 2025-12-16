@@ -157,11 +157,6 @@ const ForgetPassword = ({ theme }) => {
             width: '100%',
             boxSizing: 'border-box',
         },
-        inputFocus: {
-            border: `1px solid #A78BFA`,
-            boxShadow: `0 0 0 3px rgba(167, 139, 250, 0.2)`,
-            transform: 'translateY(-2px)',
-        },
         submitButton: {
             background: colors.gradient.purple,
             color: 'white',
@@ -177,10 +172,6 @@ const ForgetPassword = ({ theme }) => {
             boxShadow: '0 4px 15px rgba(167, 139, 250, 0.3)',
             position: 'relative',
             overflow: 'hidden',
-        },
-        submitButtonHover: {
-            transform: 'translateY(-3px)',
-            boxShadow: '0 8px 25px rgba(167, 139, 250, 0.4)',
         },
         loadingSpinner: {
             display: 'inline-block',
@@ -228,9 +219,6 @@ const ForgetPassword = ({ theme }) => {
             marginLeft: '0.5rem',
             transition: 'all 0.3s ease',
             fontFamily: "'Inter', sans-serif",
-        },
-        linkHover: {
-            transform: 'translateX(3px)',
         },
     };
 
