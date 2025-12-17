@@ -91,10 +91,12 @@ const ManageProducts = ({ theme = "light" }) => {
                 style={{ borderColor: border }}
               >
                 <td className="p-3">
-                  <img
-                    src={`https://ecommerce-backend-s1l7.onrender.com${item.image}`}
-                    className="w-14 h-14 rounded-lg object-cover shadow-sm"
-                  />
+<img
+  src={getImageUrl(item.image)}
+  className="w-20 h-20 rounded-lg object-cover shadow-sm"
+  alt={item.name}
+/>
+
                 </td>
 
                 <td className="p-3 font-semibold">{item.name}</td>
@@ -144,10 +146,11 @@ const ManageProducts = ({ theme = "light" }) => {
             style={{ background: card, borderColor: border }}
           >
             <div className="flex gap-4">
-              <img
-                src={`https://ecommerce-backend-s1l7.onrender.com${item.image}`}
-                className="w-20 h-20 rounded-lg object-cover shadow-sm"
-              />
+<img
+  src={getImageUrl(item.image)}
+  className="w-20 h-20 rounded-lg object-cover shadow-sm"
+  alt={item.name}
+/>
 
               <div className="flex-1">
                 <h2 className="font-bold text-lg">{item.name}</h2>
