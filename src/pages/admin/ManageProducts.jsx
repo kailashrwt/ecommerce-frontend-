@@ -7,16 +7,18 @@ const ManageProducts = ({ theme = "light" }) => {
   const isDark = theme === "dark";
   const [products, setProducts] = useState([]);
 
- // ✅ ADD THIS FUNCTION HERE
-  const getImageUrl = (image) => {
-    if (!image) return "/placeholder.png";
+// ✅ ADD THIS AT THE VERY TOP (imports ke baad)
 
-    if (image.includes("res.cloudinary.com")) {
-      return image.replace("/upload/", "/upload/q_auto,f_auto/");
-    }
+const getImageUrl = (image) => {
+  if (!image) return "/placeholder.png";
 
-    return image;
-  };
+  if (image.includes("res.cloudinary.com")) {
+    return image.replace("/upload/", "/upload/q_auto,f_auto/");
+  }
+
+  return image;
+};
+
 
 
   useEffect(() => {
