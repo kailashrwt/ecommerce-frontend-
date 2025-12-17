@@ -35,7 +35,9 @@ const EditProduct = ({ theme = "light" }) => {
                         image: null,
                         oldImage: p.image,
                     });
-                    setPreviewImage(`https://ecommerce-backend-s1l7.onrender.com${p.image}`);
+                    setPreviewImage(p.image);
+
+
                 }
             } catch (err) {
                 console.error("Fetch error:", err);
@@ -74,8 +76,7 @@ const EditProduct = ({ theme = "light" }) => {
 
             const res = await axios.put(
                 `https://ecommerce-backend-s1l7.onrender.com/api/products/${id}`,
-                formData,
-                { headers: { "Content-Type": "multipart/form-data" } }
+                formData
             );
 
             if (res.data.success) {
@@ -167,7 +168,7 @@ const EditProduct = ({ theme = "light" }) => {
                         <option value="">Select Category</option>
                         <option value="Rings">Rings</option>
                         <option value="Necklace">Necklace</option>
-                        <option value="Bracelet">Bracelets</option>
+                        <option value="Bracelets">Bracelets</option>
                         <option value="Earrings">Earrings</option>
                         <option value="Hoops">Hoops</option>
                         <option value="Citrus Chic">Citrus-Chic</option>
