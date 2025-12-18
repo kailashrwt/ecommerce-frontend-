@@ -36,8 +36,8 @@ export default function Home({ theme }) {
     { label: "Summer Fling", path: "/client/flavors/summerfling", type: "Summer Fling", icon: <SummerFling /> },
 
     // Sorbet Girl
-    { label: "Lil Scoopsies", path: "/client/sorbet-girl/lilscoopsies", type: "Lil Scoopsies", icon: <LilScoopsies />},
-    { label: "Sassy Sorbet", path: "/client/sorbet-girl/sassysorbet", type: "Sassy Sorbet", icon: <SassySorbet /> },
+    { label: "Lil Scoopsies", path: "/sorbetgirl/lilscoopsies", type: "Lil Scoopsies", icon: <LilScoopsies />},
+    { label: "Sassy Sorbet", path: "/sorbetgirl/sassysorbet", type: "Sassy Sorbet", icon: <SassySorbet /> },
 
     // Gifts (price based)
     { label: "Gift Under ₹2000", path: "/gifts/giftunder2000", type: "under2000", icon: <GiftIcon /> },
