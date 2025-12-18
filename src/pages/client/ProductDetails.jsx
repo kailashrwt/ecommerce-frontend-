@@ -5,6 +5,12 @@ import { useParams, useNavigate } from "react-router-dom";
 const ProductDetails = () => {
   const { id } = useParams();
   const navigate = useNavigate();
+const getImageUrl = (image) => {
+  if (!image) return "/placeholder.png";
+  return image; // Cloudinary full URL
+};
+
+
 
   const [product, setProduct] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -33,10 +39,11 @@ const ProductDetails = () => {
 
       {/* PRODUCT IMAGE */}
       <img
-        src={`https://ecommerce-backend-s1l7.onrender.com${product.image}`}
-        alt={product.name}
-        className="w-full max-h-[350px] sm:max-h-[450px] object-cover rounded-xl shadow-md"
-      />
+  src={getImageUrl(product.image)}
+  alt={product.name}
+/>
+
+
 
       {/* TITLE + PRICE */}
       <div className="mt-5 text-center sm:text-left">
