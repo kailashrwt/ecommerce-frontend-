@@ -41,10 +41,17 @@ const MyOrders = ({ theme }) => {
                     <div className="mt-3">
             {order.items.map((item, idx) => (
                             <div key={idx} className="flex gap-4 items-center">
-                                <img src={item.product?.image || "/placeholder.png"} />
-                                <div>
-                                    <p>{item.product.name}</p>
-                                    <p>Qty: {item.quantity}</p>
+                                <img
+  src={
+    item.product?.image
+      ? `https://ecommerce-backend-s1l7.onrender.com${item.product.image}`
+      : "/placeholder.png"
+  }
+/>
+
+<p>{item.product?.name || "Product not available"}</p>
+
+
                                 </div>
                             </div>
                         ))}
