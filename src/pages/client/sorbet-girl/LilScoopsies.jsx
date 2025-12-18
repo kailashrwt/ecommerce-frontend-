@@ -8,6 +8,13 @@ const LilScoopsies = ({ theme = "light" }) => {
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(true);
     const navigate = useNavigate();
+<img
+  src={item.image || "/placeholder.png"}
+  alt={item.name}
+  className="w-full h-40 object-cover rounded-lg mb-3"
+/>
+
+
 
     useEffect(() => {
         const fetchLilScoopsies = async () => {
@@ -67,11 +74,9 @@ const LilScoopsies = ({ theme = "light" }) => {
                             }}
                         >
                             {/* IMG */}
-                            <img
-                                src={`https://ecommerce-backend-s1l7.onrender.com${item.image}`}
-                                alt={item.name}
-                                className="w-full h-48 sm:h-56 md:h-60 object-cover rounded-lg mb-4"
-                            />
+                            <img src={getImageUrl(item.image)} alt={item.name} />
+
+
 
                             {/* Name */}
                             <h2 className="text-lg sm:text-xl font-bold">{item.name}</h2>
