@@ -113,10 +113,12 @@ const Gifts = ({ theme = "light" }) => {
                                 }}
                             >
                                 <img
-                                    src={`https://ecommerce-backend-s1l7.onrender.com${item.image}`}
-                                    alt={item.name}
-                                    className="w-full h-44 sm:h-48 md:h-52 object-cover rounded-lg mb-3"
-                                />
+  src={item.image || "/placeholder.png"}
+  alt={item.name}
+  className="w-full h-44 sm:h-48 md:h-52 object-cover rounded-lg mb-3"
+/>
+
+
 
                                 <h3 className="font-semibold text-base sm:text-lg">
                                     {item.name}
