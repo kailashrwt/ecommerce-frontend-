@@ -28,16 +28,16 @@ export default function Home({ theme }) {
     { label: "Rings", path: "/client/shop/rings", type: "Rings", icon: <RingsIcon /> },
 
     // Flavors
-    { label: "Citrus Chic", path: "/flavors/citruschic", type: "Citrus Chic", icon: <CitrusChic /> },
-    { label: "Berry Minimum", path: "/flavors/berryminimum", type: "Berry Minimum", icon: <BerryMinimum /> },
-    { label: "Classic Vanilla", path: "/flavors/classicvanilla", type: "Classic Vanilla", icon: <ClassicVanilla /> },
-    { label: "Luxurious Lime", path: "/flavors/luxuriouslime", type: "Luxurious Lime", icon: <LuxuriusLime /> },
-    { label: "Sorbet Sensation", path: "/flavors/sorbetsensation", type: "Sorbet Sensation", icon: <SorbetSensation /> },
-    { label: "Summer Fling", path: "/flavors/summerfling", type: "Summer Fling", icon: <SummerFling /> },
+    { label: "Citrus Chic", path: "/client/flavors/citruschic", type: "Citrus Chic", icon: <CitrusChic /> },
+    { label: "Berry Minimum", path: "/client/flavors/berryminimum", type: "Berry Minimum", icon: <BerryMinimum /> },
+    { label: "Classic Vanilla", path: "/client/flavors/classicvanilla", type: "Classic Vanilla", icon: <ClassicVanilla /> },
+    { label: "Luxurious Lime", path: "/client/flavors/luxuriouslime", type: "Luxurious Lime", icon: <LuxuriusLime /> },
+    { label: "Sorbet Sensation", path: "/client/flavors/sorbetsensation", type: "Sorbet Sensation", icon: <SorbetSensation /> },
+    { label: "Summer Fling", path: "/client/flavors/summerfling", type: "Summer Fling", icon: <SummerFling /> },
 
     // Sorbet Girl
-    { label: "Lil Scoopsies", path: "/sorbet-girl/lilscoopsies", type: "Lil Scoopsies", icon: <LilScoopsies />},
-    { label: "Sassy Sorbet", path: "/sorbet-girl/sassysorbet", type: "Sassy Sorbet", icon: <SassySorbet /> },
+    { label: "Lil Scoopsies", path: "/client/sorbet-girl/lilscoopsies", type: "Lil Scoopsies", icon: <LilScoopsies />},
+    { label: "Sassy Sorbet", path: "/client/sorbet-girl/sassysorbet", type: "Sassy Sorbet", icon: <SassySorbet /> },
 
     // Gifts (price based)
     { label: "Gift Under ₹2000", path: "/gifts/giftunder2000", type: "under2000", icon: <GiftIcon /> },
