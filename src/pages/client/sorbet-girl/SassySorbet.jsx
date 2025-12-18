@@ -8,10 +8,7 @@ const SassySorbet = ({ theme = "light" }) => {
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(true);
     const navigate = useNavigate();
-const getImageUrl = (image) => {
-  if (!image) return "/placeholder.png";
-  return image; // Cloudinary full URL
-};
+
 
 
 
