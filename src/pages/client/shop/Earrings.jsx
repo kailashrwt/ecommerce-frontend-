@@ -72,13 +72,7 @@ const getImageUrl = (image) => {
               }}
             >
               {/* Image */}
-              <img
-  src={getImageUrl(product.image)}
-  alt={product.name}
-/>
-
-
-
+            <img src={getImageUrl(item.image)} alt={item.name} />
               {/* Name */}
               <h2 className="text-lg sm:text-xl font-bold">{item.name}</h2>
               <p className="text-sm opacity-80">{item.category}</p>
