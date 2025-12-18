@@ -111,7 +111,7 @@ const qtyFromCart = Number(query.get("qty")) || 1;
         {/* NEW RESPONSIVE FIXED FLEX */}
         <div className="flex flex-col md:flex-row gap-6 md:gap-10 items-center md:items-start">
           <img  src={product.image || "/placeholder.png"}
-            alt={item.name}
+            alt={product.name}
             className="w-full h-48 sm:h-56 md:h-60 object-cover rounded-lg mb-4"
             />
 
