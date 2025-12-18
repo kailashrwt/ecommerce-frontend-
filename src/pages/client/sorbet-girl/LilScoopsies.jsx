@@ -8,13 +8,10 @@ const LilScoopsies = ({ theme = "light" }) => {
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(true);
     const navigate = useNavigate();
-<img
-  src={item.image || "/placeholder.png"}
-  alt={item.name}
-  className="w-full h-40 object-cover rounded-lg mb-3"
-/>
-
-
+export const getImageUrl = (image) => {
+  if (!image) return "/placeholder.png";
+  return image; // Cloudinary full URL
+};
 
     useEffect(() => {
         const fetchLilScoopsies = async () => {
@@ -74,7 +71,9 @@ const LilScoopsies = ({ theme = "light" }) => {
                             }}
                         >
                             {/* IMG */}
-                    src={item.image || "/placeholder.png"}
+                   <img src={getImageUrl(item.image)} alt={item.name} />
+
+
 
 
 
