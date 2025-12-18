@@ -72,10 +72,12 @@ const SassySorbet = ({ theme = "light" }) => {
                             {/* IMAGE */}
  
                               <img
-                             src={item.image || "/placeholder.png"}
-                             alt={item.name}
-                             className="w-full h-48 sm:h-56 md:h-60 object-cover rounded-lg mb-4"
-                              />
+  src={item.image || "/placeholder.png"}
+  alt={item.name}
+  className="w-full h-48 sm:h-56 md:h-60 object-cover rounded-lg mb-4"
+/>
+
+
 
 
 
