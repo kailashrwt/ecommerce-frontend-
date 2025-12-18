@@ -11,6 +11,12 @@ const Shop = ({ theme = "light", setCartCount }) => {
   // 🔍 Read ?search= query
   const queryParams = new URLSearchParams(location.search);
   const searchQuery = queryParams.get("search")?.toLowerCase() || "";
+const getImageUrl = (image) => {
+  if (!image) return "/placeholder.png";
+  return image; // Cloudinary full URL
+};
+
+
 
   // 🔹 Load all products
   useEffect(() => {
@@ -94,10 +100,10 @@ const Shop = ({ theme = "light", setCartCount }) => {
               {/* Image */}
               <div className="w-full h-56 overflow-hidden rounded-lg">
                 <img
-                  src={`https://ecommerce-backend-s1l7.onrender.com${item.image}`}
-                  alt={item.name}
-                  className="w-full h-full object-cover hover:scale-110 transition duration-300"
-                />
+  src={item.image || "/placeholder.png"}
+  alt={item.name}
+  className="w-full h-full object-cover hover:scale-110 transition duration-300"
+/>
               </div>
 
               {/* Info */}
