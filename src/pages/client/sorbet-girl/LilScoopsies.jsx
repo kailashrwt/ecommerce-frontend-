@@ -8,10 +8,7 @@ const LilScoopsies = ({ theme = "light" }) => {
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(true);
     const navigate = useNavigate();
-export const getImageUrl = (image) => {
-  if (!image) return "/placeholder.png";
-  return image; // Cloudinary full URL
-};
+
 
     useEffect(() => {
         const fetchLilScoopsies = async () => {
