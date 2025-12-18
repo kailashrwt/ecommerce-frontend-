@@ -41,12 +41,25 @@ const MyOrders = ({ theme }) => {
                                   <div className="mt-3">
                         {order.items.map((item, idx) => (
                             <div key={idx} className="flex gap-4 items-center">
-                                <img
-                                    src={`https://ecommerce-backend-s1l7.onrender.com${item.product.image}`}
-                                    className="w-16 h-16 rounded"
-                                />
-                                <div>
-                                    <p>{item.product.name}</p>
+                                {item.product ? (
+  <div className="flex gap-4 items-center">
+    <img
+      src={`https://ecommerce-backend-s1l7.onrender.com${item.product.image}`}
+      className="w-16 h-16 rounded"
+      alt={item.product.name}
+    />
+    <div>
+      <p>{item.product.name}</p>
+      <p>Qty: {item.quantity}</p>
+    </div>
+  </div>
+) : (
+  <p className="text-red-500 text-sm">
+    Product not available (deleted or missing)
+  </p>
+)}
+
+
                                     <p>Qty: {item.quantity}</p>
                                 </div>
                             </div>
