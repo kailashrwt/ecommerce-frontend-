@@ -38,10 +38,13 @@ const MyOrders = ({ theme }) => {
                     <p>Payment: <b>{order.paymentStatus}</b></p>
                     <p>Total: ₹{order.totalAmount}</p>
 
-                   <div className="mt-3">
+                                  <div className="mt-3">
                         {order.items.map((item, idx) => (
                             <div key={idx} className="flex gap-4 items-center">
-                                
+                                <img
+                                    src={`https://ecommerce-backend-s1l7.onrender.com${item.product.image}`}
+                                    className="w-16 h-16 rounded"
+                                />
                                 <div>
                                     <p>{item.product.name}</p>
                                     <p>Qty: {item.quantity}</p>
