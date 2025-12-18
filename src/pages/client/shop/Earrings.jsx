@@ -8,6 +8,12 @@ const Earrings = ({ theme = "light" }) => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
+const getImageUrl = (image) => {
+  if (!image) return "/placeholder.png";
+  return image; // Cloudinary full URL
+};
+
+
 
   useEffect(() => {
     const fetchEarrings = async () => {
@@ -67,10 +73,11 @@ const Earrings = ({ theme = "light" }) => {
             >
               {/* Image */}
               <img
-                src={`https://ecommerce-backend-s1l7.onrender.com${item.image}`}
-                alt={item.name}
-                className="w-full h-48 sm:h-56 md:h-60 object-cover rounded-lg mb-4"
-              />
+  src={getImageUrl(product.image)}
+  alt={product.name}
+/>
+
+
 
               {/* Name */}
               <h2 className="text-lg sm:text-xl font-bold">{item.name}</h2>
