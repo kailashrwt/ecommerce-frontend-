@@ -67,11 +67,16 @@ const LilScoopsies = ({ theme = "light" }) => {
                                 border: isDark ? "1px solid #334155" : "1px solid #e2e8f0",
                             }}
                         >
-                            {/* IMG */}  <img
-  src={item.image || "/placeholder.png"}
-  alt={item.name}
-  className="w-full h-48 sm:h-56 md:h-60 object-cover rounded-lg mb-4"
-/>
+                            {/* IMG */} 
+                            <img
+                            src={item.image || "/placeholder.png"}
+                             alt={item.name}
+                             className="w-full h-48 sm:h-56 md:h-60 object-cover rounded-lg mb-4"
+                               />
+
+
+
+
 
 
                             {/* Name */}
