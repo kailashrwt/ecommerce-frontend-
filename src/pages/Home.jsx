@@ -13,6 +13,12 @@ export default function Home({ theme }) {
   const [categoryProducts, setCategoryProducts] = useState({});
   const [loading, setLoading] = useState(true);
   const [hoveredProduct, setHoveredProduct] = useState(null);
+  const getImageUrl = (image) => {
+  if (!image) return "/placeholder.png";
+  return image; // Cloudinary full URL
+   };
+
+
 
   const categories = [
     { label: "Hoops", path: "/client/shop/hoops", type: "Hoops", icon: <HoopsIcon /> },
@@ -39,41 +45,40 @@ export default function Home({ theme }) {
     { label: "Gift ₹3600-₹5000", path: "/gifts/gift3600to5000", type: "3600to5000", icon: <Gift3600To5000Icon /> }
   ];
 
-  useEffect(() => {
-    const fetchAll = async () => {
-      try {
-        const newData = {};
+useEffect(() => {
+  const fetchAll = async () => {
+    try {
+      const requests = categories.map((c) => {
+        if (c.type === "under2000")
+          return axios.get("https://ecommerce-backend-s1l7.onrender.com/api/products/price/0/2000").then(r => ({ key: c.label, data: r.data.products }));
+        if (c.type === "2100to3500")
+          return axios.get("https://ecommerce-backend-s1l7.onrender.com/api/products/price/2100/3500").then(r => ({ key: c.label, data: r.data.products }));
+        if (c.type === "3600to5000")
+          return axios.get("https://ecommerce-backend-s1l7.onrender.com/api/products/price/3600/5000").then(r => ({ key: c.label, data: r.data.products }));
 
-        for (const c of categories) {
-          let url = "";
+        return axios
+          .get(`https://ecommerce-backend-s1l7.onrender.com/api/products/category/${c.type}`)
+          .then(r => ({ key: c.label, data: r.data.products }));
+      });
 
-          if (c.type === "under2000") {
-            url = "https://ecommerce-backend-s1l7.onrender.com/api/products/price/0/2000";
-          } else if (c.type === "2100to3500") {
-            url = "https://ecommerce-backend-s1l7.onrender.com/api/products/price/2100/3500";
-          } else if (c.type === "3600to5000") {
-            url = "https://ecommerce-backend-s1l7.onrender.com/api/products/price/3600/5000";
-          } else {
-            url = `https://ecommerce-backend-s1l7.onrender.com/api/products/category/${c.type}`;
-          }
+      const results = await Promise.all(requests);
+      const finalData = {};
 
-          const res = await axios.get(url);
+      results.forEach(r => {
+        finalData[r.key] = r.data.slice(0, 4);
+      });
 
-          if (res.data.success) {
-            newData[c.label] = res.data.products.slice(0, 4);
-          }
-        }
+      setCategoryProducts(finalData);
+    } catch (err) {
+      console.error("Home categories fetch error:", err);
+    } finally {
+      setLoading(false);
+    }
+  };
 
-        setCategoryProducts(newData);
-      } catch (error) {
-        console.error("Home categories fetch error:", error);
-      } finally {
-        setLoading(false);
-      }
-    };
+  fetchAll();
+}, []);
 
-    fetchAll();
-  }, []);
 
   if (loading) {
     return (
@@ -261,19 +266,17 @@ export default function Home({ theme }) {
                     transition: "0.3s",
                   }}
                   onClick={() => navigate(`/product/${item._id}`)}
-                >
-                  <img
-                    src={`https://ecommerce-backend-s1l7.onrender.com${item.image}`}
-                    alt=""
-                    style={{
-                      width: "100%",
-                      height: "220px",
-                      objectFit: "cover",
-                      borderRadius: "12px",
-                      marginBottom: "0.7rem",
-                    }}
+                ><img
+                src={getImageUrl(item.image)}
+                alt={item.name}
+                style={{
+                width: "100%",
+                 height: "220px",
+                 objectFit: "cover",
+                  borderRadius: "12px",
+                  marginBottom: "0.7rem",
+                  }}
                   />
-
                   <h3 style={{ fontWeight: "600", marginBottom: "0.3rem" }}>
                     {item.name}
                   </h3>
