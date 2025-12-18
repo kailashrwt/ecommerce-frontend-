@@ -39,22 +39,21 @@ const MyOrders = ({ theme }) => {
                     <p>Total: ₹{order.totalAmount}</p>
 
                     <div className="mt-3">
-               {order.items.map((item, idx) => {
-  if (!item.product) return null;
-
-  return (
-    <div key={idx} className="flex gap-4 items-center">
-      <img
-        src={item.product.image}
-        className="w-16 h-16 rounded"
-      />
-      <div>
-        <p>{item.product.name}</p>
-        <p>Qty: {item.quantity}</p>
-      </div>
-    </div>
-  );
-})}
+            {order.items.map((item, idx) => (
+                            <div key={idx} className="flex gap-4 items-center">
+                                <img
+                                    src={`https://ecommerce-backend-s1l7.onrender.com${item.product.image}`}
+                                    className="w-16 h-16 rounded"
+                                />
+                                <div>
+                                    <p>{item.product.name}</p>
+                                    <p>Qty: {item.quantity}</p>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            ))}
 
 
 
