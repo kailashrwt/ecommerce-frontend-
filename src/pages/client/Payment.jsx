@@ -109,10 +109,12 @@ const Payment = ({ theme = "light" }) => {
         {/* NEW RESPONSIVE FIXED FLEX */}
         <div className="flex flex-col md:flex-row gap-6 md:gap-10 items-center md:items-start">
           <img
-            src={`https://ecommerce-backend-s1l7.onrender.com${product.image}`}
-            alt={product.name}
-            className="w-40 h-40 sm:w-48 sm:h-48 md:w-56 md:h-56 object-cover rounded-lg shadow-md"
-          />
+  src={item.image || "/placeholder.png"}
+  alt={item.name}
+  className="w-full h-48 sm:h-56 md:h-60 object-cover rounded-lg mb-4"
+/>
+
+
 
           {/* TEXT SECTION */}
           <div className="w-full text-center md:text-left">
