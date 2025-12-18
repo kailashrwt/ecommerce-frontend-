@@ -88,10 +88,10 @@ const Flavors = ({ theme = "light" }) => {
                 onClick={() => navigate(`/product/${item._id}`)}
               >
                 <img
-                  src={`https://ecommerce-backend-s1l7.onrender.com${item.image}`}
-                  alt={item.name}
-                  className="w-full h-40 object-cover rounded-lg mb-3"
-                />
+  src={item.image || "/placeholder.png"}
+  alt={item.name}
+  className="w-full h-40 object-cover rounded-lg mb-3"
+/>
                 <h3 className="font-semibold">{item.name}</h3>
                 <p className="text-green-500 font-bold">₹{item.price}</p>
               </div>
