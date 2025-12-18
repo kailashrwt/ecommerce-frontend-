@@ -10,9 +10,11 @@ const Payment = ({ theme = "light" }) => {
 
   const query = new URLSearchParams(location.search);
   const productId = query.get("productId");
+const qtyFromCart = Number(query.get("qty")) || 1;
+
 
   const [product, setProduct] = useState(null);
-  const [qty, setQty] = useState(1);
+  const [qty, setQty] = useState(qtyFromCart);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -108,7 +110,7 @@ const Payment = ({ theme = "light" }) => {
       >
         {/* NEW RESPONSIVE FIXED FLEX */}
         <div className="flex flex-col md:flex-row gap-6 md:gap-10 items-center md:items-start">
-          <img src={product.image || "/placeholder.png"}
+          <img  src={product.image || "/placeholder.png"}
             alt={item.name}
             className="w-full h-48 sm:h-56 md:h-60 object-cover rounded-lg mb-4"
             />
