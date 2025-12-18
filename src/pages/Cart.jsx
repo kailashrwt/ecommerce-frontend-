@@ -90,7 +90,7 @@ const CartPage = ({ setCartCount }) => {
               >
                 {/* IMAGE */}
                 <img
-                  src={`https://ecommerce-backend-s1l7.onrender.com${it.image}`}
+                 src={it.image || "/placeholder.png"}
                   alt={it.name}
                   className="w-24 h-24 sm:w-28 sm:h-28 rounded-lg object-cover"
                 />
@@ -136,7 +136,7 @@ const CartPage = ({ setCartCount }) => {
 
                 {/* BUY NOW */}
                 <button
-                  onClick={() => navigate(`/payment?productId=${it.productId}`)}
+                  onClick={() => navigate(`/payment?productId=${it.productId}&qty=${it.quantity}`)}
                   className="bg-teal-600 text-white px-4 py-2 rounded-lg shadow hover:bg-teal-700 transition flex items-center gap-1"
                 >
                   <FlashIcon className="w-5 h-5" /> Buy Now
