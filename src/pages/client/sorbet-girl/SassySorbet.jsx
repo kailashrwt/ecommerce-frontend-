@@ -70,8 +70,9 @@ const SassySorbet = ({ theme = "light" }) => {
                             }}
                         >
                             {/* IMAGE */}
-  <img
-                                src={https://ecommerce-backend-s1l7.onrender.com${item.image}}
+ 
+                              <img
+                                src={`https://ecommerce-backend-s1l7.onrender.com${item.image}`}
                                 alt={item.name}
                                 className="w-full h-48 sm:h-56 md:h-60 object-cover rounded-lg mb-4"
                             />
