@@ -55,7 +55,7 @@ const MyOrders = () => {
                 {item.product ? (
                   <div className="flex gap-4 items-center">
                     <img
-                      src={`https://ecommerce-backend-s1l7.onrender.com${item.product.image}`}
+                      src={item.product?.image || "/placeholder.png"}
                       className="w-16 h-16 rounded object-cover"
                       alt={item.product.name}
                     />
