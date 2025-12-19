@@ -15,12 +15,10 @@ import LoadingSpinner from "./components/LoadingSpinner";
 import Navbar from "./components/Navbar";
 import ScrollToTop from "./components/ScrollToTop";
 import AdminLayout from "./layouts/AdminLayout";
-import ForgetPassword from "./pages/ForgetPassword";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import AddToCart from "./pages/AddToCart";
 import Cart from "./pages/Cart";
-import ResetPassword from "./pages/ResetPassword";
 import AdminProfile from "./pages/admin/AdminProfile";
 import ManageProducts from "./pages/admin/ManageProducts";
 import AdminAddProduct from "./pages/admin/AddProduct";
@@ -69,8 +67,6 @@ const routes = [
   { path: "/register", component: Register },
   {path: "/addtocart", component: AddToCart},
   {path: "/cart", component: Cart},
-  { path: "/forget-password", component: ForgetPassword },
-  { path: "/reset-password/:token", component: ResetPassword },
   {path: "/product/:id", component: ProductDetails},
   {path: "/payment", component: Payment},
   { path: "/shop", component: Shop },
