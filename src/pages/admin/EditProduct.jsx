@@ -168,7 +168,7 @@ const EditProduct = ({ theme = "light" }) => {
                         <option value="">Select Category</option>
                         <option value="Rings">Rings</option>
                         <option value="Necklace">Necklace</option>
-                        <option value="Bracelets">Bracelets</option>
+                        <option value="Bracelets">Bracelet</option>
                         <option value="Earrings">Earrings</option>
                         <option value="Hoops">Hoops</option>
                         <option value="Citrus Chic">Citrus-Chic</option>
