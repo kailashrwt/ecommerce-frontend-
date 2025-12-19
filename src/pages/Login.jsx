@@ -227,8 +227,7 @@ const Login = ({ theme = "light", onLogin = null, onLogout = null, isLoggedIn = 
 
           <div style={styles.inputGroup}>
             <label style={styles.label}>Password</label>
-            <input type="password" value={formData.password} onChange={handleInputChange("password")} style={styles.input} />
-            <Link to="/forget-password" style={styles.forgotPassword}>Forgot your password?</Link>
+            <input type="password" value={formData.password} onChange={handleInputChange("password")} style={styles.input} />            
           </div>
 
           <button type="submit" style={styles.loginButton}>
