@@ -1,16 +1,54 @@
-# React + Vite
+# 🛒 E-Commerce Frontend (MERN)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This repository contains the **frontend** of a full-stack **E-Commerce web application** built using **React.js**.  
+The application provides a clean, responsive, and user-friendly interface for users to browse products, manage cart, and place orders.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Live Demo
+🔗 https://ecommerce-frontend-6hfj.onrender.com/
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🧑‍💻 Tech Stack
+- React.js
+- JavaScript (ES6+)
+- HTML5
+- CSS3
+- Tailwind CSS
+- Axios
+- React Router DOM
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## ✨ Features
+- User Authentication (Login & Register)
+- JWT-based secure API communication
+- Product listing with dynamic data
+- Add to cart functionality
+- Order placement flow
+- Responsive UI for mobile and desktop
+- Clean and modern design
+
+---
+
+## 🔄 Data Flow (Frontend)
+User actions → React Components  
+→ API calls using Axios  
+→ Backend REST APIs  
+→ Response rendered dynamically on UI
+
+---
+
+## 🔗 Backend Repository
+👉 https://github.com/USERNAME/ecommerce-backend  
+*(Replace USERNAME with your GitHub username)*
+
+---
+
+## ⚙️ Installation & Setup
+
+### 1️⃣ Clone the repository
+```bash
+git clone https://github.com/USERNAME/ecommerce-frontend.git
+
