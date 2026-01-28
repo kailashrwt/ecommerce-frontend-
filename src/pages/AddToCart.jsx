@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { ShoppingCart } from "lucide-react";
 
-const AddToCart = ({ productId, onAdded, setCartCount }) => {
+const AddToCart = ({ productId, onAdded, setCartCount, style = {} }) => {
   const [loading, setLoading] = useState(false);
 
   const handleAddToCart = async () => {
@@ -40,7 +41,7 @@ const AddToCart = ({ productId, onAdded, setCartCount }) => {
       onClick={handleAddToCart}
       disabled={loading}
       style={{
-        background: loading ? "#FFD3D3" : "linear-gradient(135deg,#FF6B6B,#FF8E8E)",
+        background: loading ? "#FFD3D3" : "linear-gradient(135deg,#22C55E,#10B981)",
         padding: "10px 14px",
         borderRadius: 12,
         color: "#fff",
@@ -49,9 +50,17 @@ const AddToCart = ({ productId, onAdded, setCartCount }) => {
         display: "flex",
         alignItems: "center",
         gap: 8,
+        ...style,
       }}
     >
-      {loading ? "⏳ Adding..." : "🛒 Add to Cart"}
+      {loading ? (
+        "⏳ Adding..."
+      ) : (
+        <>
+          <ShoppingCart size={18} />
+          Add to Cart
+        </>
+      )}
     </button>
   );
 };

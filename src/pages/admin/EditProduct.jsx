@@ -35,7 +35,7 @@ const EditProduct = ({ theme = "light" }) => {
                         image: null,
                         oldImage: p.image,
                     });
-                    setPreviewImage(`https://ecommerce-backend-s1l7.onrender.com${p.image}`);
+                    setPreviewImage(`${p.image}`);
                 }
             } catch (err) {
                 console.error("Fetch error:", err);

@@ -55,7 +55,7 @@ const AdminDashboard = ({ theme }) => {
               {report.bestSellingProducts.slice(0, 6).map((p, i) => (
                 <div key={i} className="flex items-center gap-3">
                   <div className="w-12 h-12 rounded-md bg-gray-100 dark:bg-gray-800 overflow-hidden flex-shrink-0">
-                    <img src={`http://localhost:6060${p.productDetails?.[0]?.image || "/placeholder.png"}`} alt={p.productDetails?.[0]?.name} className="w-full h-full object-cover" />
+                    <img src={p.productDetails?.[0]?.image || "/placeholder.png"} alt={p.productDetails?.[0]?.name} className="w-full h-full object-cover" />
                   </div>
                   <div className="flex-1">
                     <div className="font-medium">{p.productDetails?.[0]?.name || "Unknown"}</div>

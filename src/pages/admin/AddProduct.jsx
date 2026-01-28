@@ -185,6 +185,7 @@ const handleSubmit = async (e) => {
           >
             <input
               type="file"
+              name="image"
               accept="image/*"
               onChange={handleImage}
               className="hidden"

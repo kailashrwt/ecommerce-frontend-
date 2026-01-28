@@ -92,9 +92,15 @@ const ManageProducts = ({ theme = "light" }) => {
               >
                 <td className="p-3">
                   <img
-                    src={`https://ecommerce-backend-s1l7.onrender.com${item.image}`}
-                    className="w-14 h-14 rounded-lg object-cover shadow-sm"
+                    src={
+                      item.image
+                        ? item.image.replace("/upload/", "/upload/q_auto,f_auto/")
+                        : "/placeholder.png"
+                    }
+                    className="w-20 h-20 rounded-lg object-cover shadow-sm"
+                    alt={item.name}
                   />
+
                 </td>
 
                 <td className="p-3 font-semibold">{item.name}</td>
@@ -145,9 +151,15 @@ const ManageProducts = ({ theme = "light" }) => {
           >
             <div className="flex gap-4">
               <img
-                src={`https://ecommerce-backend-s1l7.onrender.com${item.image}`}
+                src={
+                  item.image
+                    ? item.image.replace("/upload/", "/upload/q_auto,f_auto/")
+                    : "/placeholder.png"
+                }
                 className="w-20 h-20 rounded-lg object-cover shadow-sm"
+                alt={item.name}
               />
+
 
               <div className="flex-1">
                 <h2 className="font-bold text-lg">{item.name}</h2>

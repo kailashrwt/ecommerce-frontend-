@@ -15,12 +15,10 @@ import LoadingSpinner from "./components/LoadingSpinner";
 import Navbar from "./components/Navbar";
 import ScrollToTop from "./components/ScrollToTop";
 import AdminLayout from "./layouts/AdminLayout";
-import ForgetPassword from "./pages/ForgetPassword";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import AddToCart from "./pages/AddToCart";
 import Cart from "./pages/Cart";
-import ResetPassword from "./pages/ResetPassword";
 import AdminProfile from "./pages/admin/AdminProfile";
 import ManageProducts from "./pages/admin/ManageProducts";
 import AdminAddProduct from "./pages/admin/AddProduct";
@@ -46,12 +44,16 @@ import SummerFling from "./pages/client/flavors/Summerfling";
 import SorbetGirl from "./pages/SorbetGirl";
 import LilScoopsies from "./pages/client/sorbet-girl/LilScoopsies";
 import SassySorbet from "./pages/client/sorbet-girl/SassySorbet";
-import  Gift  from "./pages/Gift";
+import Gift from "./pages/Gift";
 import GiftUnder2000 from "./pages/client/gifts/GiftUnder2000";
 import Gift2100To3500 from "./pages/client/gifts/Gift2100To3500";
 import Sale from "./pages/Sale";
 import MyOrders from "./pages/MyOrders";
 import Gift3600To5000 from "./pages/client/gifts/Gift3600to5000";
+import Wishlist from "./pages/Wishlist";
+import FloatingActions from "./components/FloatingActions";
+import { useWishlist } from "./context/WishlistContext";
+import { WishlistProvider } from "./context/WishlistContext";
 
 
 
@@ -59,7 +61,7 @@ import Gift3600To5000 from "./pages/client/gifts/Gift3600to5000";
 const Home = lazy(() => import("./pages/Home"));
 const Shop = lazy(() => import("./pages/Shop"));
 const NotFound = lazy(() => import("./pages/NotFound"));
-const AdminDashboard = lazy(() =>import("./pages/admin/AdminDashboard"));
+const AdminDashboard = lazy(() => import("./pages/admin/AdminDashboard"));
 
 
 // Routes list
@@ -67,35 +69,35 @@ const routes = [
   { path: "/", component: Home },
   { path: "/login", component: Login },
   { path: "/register", component: Register },
-  {path: "/addtocart", component: AddToCart},
-  {path: "/cart", component: Cart},
-  { path: "/forget-password", component: ForgetPassword },
-  { path: "/reset-password/:token", component: ResetPassword },
-  {path: "/product/:id", component: ProductDetails},
-  {path: "/payment", component: Payment},
+  { path: "/addtocart", component: AddToCart },
+  { path: "/cart", component: Cart },
+  { path: "/product/:id", component: ProductDetails },
+  { path: "/payment", component: Payment },
   { path: "/shop", component: Shop },
-  {path: "/client/shop/hoops", component: Hoops},
-  {path: "/client/shop/earrings", component: Earrings},
-  {path: "/client/shop/necklace", component: Necklace},
-  {path: "/client/shop/bracelets", component: Bracelets},
-  {path: "/client/shop/rings", component: Rings},
-  {path: "/flavors", component: Flavors},
-  {path: "/client/flavors/citruschic", component: CitrusChic},
-  {path: "/client/flavors/berryminimum", component: BerryMinimum},
-  {path: "/client/flavors/classicvanilla", component: ClassicVanilla},
-  {path: "/client/flavors/luxuriouslime", component: LuxuriousLime},
-  {path: "/client/flavors/sorbetsensation", component: SorbetSensation},
-  {path: "/client/flavors/summerfling", component: SummerFling},
-  {path: "/sorbetgirl", component: SorbetGirl},
-  {path: "/sorbetgirl/lilscoopsies", component: LilScoopsies},
-  {path: "/sorbetgirl/sassysorbet", component: SassySorbet},
-  {path: "/gifts", component: Gift},
-  {path: "/gifts/giftunder2000", component: GiftUnder2000},
-  {path: "/gifts/gift2100to3500", component: Gift2100To3500},
-  {path: "/gifts/gift3600to5000", component: Gift3600To5000},
-  {path: "/sale", component: Sale},
-  {path: "/my-orders", component: MyOrders},
+  { path: "/client/shop/hoops", component: Hoops },
+  { path: "/client/shop/earrings", component: Earrings },
+  { path: "/client/shop/necklace", component: Necklace },
+  { path: "/client/shop/bracelets", component: Bracelets },
+  { path: "/client/shop/rings", component: Rings },
+  { path: "/flavors", component: Flavors },
+  { path: "/client/flavors/citruschic", component: CitrusChic },
+  { path: "/client/flavors/berryminimum", component: BerryMinimum },
+  { path: "/client/flavors/classicvanilla", component: ClassicVanilla },
+  { path: "/client/flavors/luxuriouslime", component: LuxuriousLime },
+  { path: "/client/flavors/sorbetsensation", component: SorbetSensation },
+  { path: "/client/flavors/summerfling", component: SummerFling },
+  { path: "/sorbetgirl", component: SorbetGirl },
+  { path: "/sorbetgirl/lilscoopsies", component: LilScoopsies },
+  { path: "/sorbetgirl/sassysorbet", component: SassySorbet },
+  { path: "/gifts", component: Gift },
+  { path: "/gifts/giftunder2000", component: GiftUnder2000 },
+  { path: "/gifts/gift2100to3500", component: Gift2100To3500 },
+  { path: "/gifts/gift3600to5000", component: Gift3600To5000 },
+  { path: "/sale", component: Sale },
+  { path: "/my-orders", component: MyOrders },
+  { path: "/wishlist", component: Wishlist },
 ];
+
 
 // Layout Wrapper (Navbar + Footer + Role Protection)
 function LayoutWrapper({
@@ -108,6 +110,7 @@ function LayoutWrapper({
   onLogout,
   cartCount,
 }) {
+  const { wishlistCount } = useWishlist();
   const navigate = useNavigate();
   const location = useLocation();
   const isAdminPage = location.pathname.startsWith("/admin");
@@ -137,21 +140,28 @@ function LayoutWrapper({
 
   return (
     <>{!isAdminPage && (
-  <Navbar
-    theme={theme}
-    onThemeToggle={toggleTheme}
-    isLoggedIn={isLoggedIn}
-    currentUser={currentUser}
-    onLogin={onLogin}
-    onLogout={onLogout}
-    cartCount={cartCount}
-  />
-)}
+      <Navbar
+        theme={theme}
+        onThemeToggle={toggleTheme}
+        isLoggedIn={isLoggedIn}
+        currentUser={currentUser}
+        onLogin={onLogin}
+        onLogout={onLogout}
+        cartCount={cartCount}
+      />
+    )}
+
 
 
       <main className={!isAdminPage ? "pt-20 min-h-[80vh]" : ""}>
         {children}
       </main>
+
+      <FloatingActions
+        isDark={theme === "dark"}
+        cartCount={cartCount}
+        wishlistCount={wishlistCount}
+      />
 
       {!isAdminPage && <Footer theme={theme} />}
     </>
@@ -164,6 +174,7 @@ export default function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [currentUser, setCurrentUser] = useState(null);
   const [cartCount, setCartCount] = useState(0);
+
 
   // 🎨 Theme colors
   const themeColors = {
@@ -200,16 +211,16 @@ export default function App() {
       setCurrentUser(JSON.parse(user));
     }
 
-    const fetchCart = async () =>{
+    const fetchCart = async () => {
       const token = localStorage.getItem("token");
-      if(!token) return setCartCount(0);
+      if (!token) return setCartCount(0);
 
-      try{
-        const res = await axios.get("https://ecommerce-backend-s1l7.onrender.com/api/cart/me",{
-          headers: {Authorization: `Bearer ${token}`},
+      try {
+        const res = await axios.get("https://ecommerce-backend-s1l7.onrender.com/api/cart/me", {
+          headers: { Authorization: `Bearer ${token}` },
         });
         setCartCount(res.data.totalItems || 0);
-      }catch (err){
+      } catch (err) {
         console.log("Cart Count Error", err);
       }
     };
@@ -271,152 +282,154 @@ export default function App() {
 
   return (
     <ErrorBoundary>
-      <Router>
-        <ScrollToTop />
-        <LayoutWrapper
-          theme={theme}
-          toggleTheme={()=> setTheme(theme === "light" ? "dark" : "light")}
-          isLoggedIn={isLoggedIn}
-          currentUser={currentUser}
-          onLogin={handleLogin}
-          onLogout={handleLogout}
-          cartCount={cartCount}
-        >
-          <Suspense
-            fallback={
-              <div className="flex justify-center items-center min-h-[400px]">
-                <LoadingSpinner />
-              </div>
-            }
+      <WishlistProvider>
+        <Router>
+          <ScrollToTop />
+          <LayoutWrapper
+            theme={theme}
+            toggleTheme={() => setTheme(theme === "light" ? "dark" : "light")}
+            isLoggedIn={isLoggedIn}
+            currentUser={currentUser}
+            onLogin={handleLogin}
+            onLogout={handleLogout}
+            cartCount={cartCount}
           >
-            <Routes>
+            <Suspense
+              fallback={
+                <div className="flex justify-center items-center min-h-[400px]">
+                  <LoadingSpinner />
+                </div>
+              }
+            >
+              <Routes>
 
 
-              {routes.map(({ path, component: Component }) => (
+                {routes.map(({ path, component: Component }) => (
+                  <Route
+                    key={path}
+                    path={path}
+                    element={
+                      path === "/login" ? (
+                        <Component
+                          theme={theme}
+                          onLogin={handleLogin}
+                          onLogout={handleLogout}
+                          isLoggedIn={isLoggedIn}
+                          currentUser={currentUser}
+                        />
+                      ) : (
+                        <Component theme={theme} setCartCount={setCartCount} />
+                      )
+                    }
+                  />
+                ))}
+
+                {/* Admin Section */}
                 <Route
-                  key={path}
-                  path={path}
+                  path="/admin-dashboard"
                   element={
-                    path === "/login" ? (
-                      <Component
-                        theme={theme}
-                        onLogin={handleLogin}
-                        onLogout={handleLogout}
-                        isLoggedIn={isLoggedIn}
-                        currentUser={currentUser}
-                      />
-                    ) : (
-                      <Component theme={theme}  setCartCount={setCartCount}/>
-                    )
+                    <AdminRoute>
+                      <AdminLayout>
+                        <AdminDashboard
+                          theme={theme}
+                          currentUser={currentUser}
+                          onLogout={handleLogout}
+                        />
+                      </AdminLayout>
+                    </AdminRoute>
                   }
                 />
-              ))}
 
-              {/* Admin Section */}
-              <Route
-                path="/admin-dashboard"
-                element={
-                  <AdminRoute>
-                    <AdminLayout>
-                      <AdminDashboard
-                        theme={theme}
-                        currentUser={currentUser}
-                        onLogout={handleLogout}
-                      />
-                    </AdminLayout>
-                  </AdminRoute>
-                }
-              />
+                <Route
+                  path="/admin-profile"
+                  element={
+                    <AdminRoute>
+                      <AdminLayout>
+                        <AdminProfile
+                          theme={theme}
+                          currentUser={currentUser}
+                          onLogout={handleLogout}
+                        />
+                      </AdminLayout>
+                    </AdminRoute>
+                  }
+                />
 
-              <Route
-              path="/admin-profile"
-              element={
-                <AdminRoute>
-                  <AdminLayout>
-                    <AdminProfile
-                    theme={theme}
-                    currentUser={currentUser}
-                    onLogout={handleLogout}
-                    />
-                  </AdminLayout>
-                </AdminRoute>
-              }
-              />
+                <Route
+                  path="/admin/manage-products"
+                  element={
+                    <AdminRoute>
+                      <AdminLayout>
+                        <ManageProducts theme={theme} />
+                      </AdminLayout>
+                    </AdminRoute>
+                  }
+                />
 
-<Route
-  path="/admin/manage-products"
-  element={
-    <AdminRoute>
-      <AdminLayout>
-        <ManageProducts theme={theme} />
-      </AdminLayout>
-    </AdminRoute>
-  }
-/>
+                <Route
+                  path="/admin/add-product"
+                  element={
+                    <AdminRoute>
+                      <AdminLayout>
+                        <AdminAddProduct theme={theme} />
+                      </AdminLayout>
+                    </AdminRoute>
+                  }
+                />
 
-<Route
-path="/admin/add-product"
-element={
-  <AdminRoute>
-    <AdminLayout>
-      <AdminAddProduct theme={theme} />
-    </AdminLayout>
-  </AdminRoute>
-}
-/>
+                <Route
+                  path="/admin/orders"
+                  element={
+                    <AdminRoute>
+                      <AdminLayout>
+                        <MangeOrders theme={theme} />
+                      </AdminLayout>
+                    </AdminRoute>
+                  }
+                />
 
-<Route 
-path="/admin/orders"
-element={
-  <AdminRoute>
-    <AdminLayout>
-      <MangeOrders theme={theme} />
-    </AdminLayout>
-  </AdminRoute>
-}
-/>
+                <Route
+                  path="/admin/customers"
+                  element={
+                    <AdminRoute>
+                      <AdminLayout>
+                        <ManageCustomer theme={theme} />
+                      </AdminLayout>
+                    </AdminRoute>
+                  }
+                />
 
-<Route
-path="/admin/customers"
-element={
-  <AdminRoute>
-    <AdminLayout>
-      <ManageCustomer theme={theme} />
-    </AdminLayout>
-  </AdminRoute>
-}
-/>
-
-<Route 
-path="/admin/reports"
-element={
-  <AdminRoute>
-    <AdminLayout>
-      <AdminReports theme={theme}/>
-    </AdminLayout>
-  </AdminRoute>
-}
-/>
+                <Route
+                  path="/admin/reports"
+                  element={
+                    <AdminRoute>
+                      <AdminLayout>
+                        <AdminReports theme={theme} />
+                      </AdminLayout>
+                    </AdminRoute>
+                  }
+                />
 
 
-<Route
-path="/admin-edit-product/:id"
-element={
-  <AdminRoute>
-    <AdminLayout>
-      <EditProduct theme={theme}/>
-    </AdminLayout>
-  </AdminRoute>
-}
-/>
+                <Route
+                  path="/admin-edit-product/:id"
+                  element={
+                    <AdminRoute>
+                      <AdminLayout>
+                        <EditProduct theme={theme} />
+                      </AdminLayout>
+                    </AdminRoute>
+                  }
+                />
 
 
-              {/* 404 */}
-              <Route path="*" element={<NotFound theme={theme} />} />
-            </Routes>
-          </Suspense>
-        </LayoutWrapper>
-      </Router>
+                {/* 404 */}
+                <Route path="*" element={<NotFound theme={theme} />} />
+              </Routes>
+            </Suspense>
+          </LayoutWrapper>
+        </Router>
+      </WishlistProvider>
     </ErrorBoundary>
   );
 }
