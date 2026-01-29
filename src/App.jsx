@@ -157,13 +157,16 @@ function LayoutWrapper({
         {children}
       </main>
 
+
+      {!isAdminPage &&(
       <FloatingActions
         isDark={theme === "dark"}
         cartCount={cartCount}
         wishlistCount={wishlistCount}
       />
-
-      {!isAdminPage && <Footer theme={theme} />}
+      )}
+       
+       {!isAdminPage &&<Footer theme={theme} />}
     </>
   );
 }
