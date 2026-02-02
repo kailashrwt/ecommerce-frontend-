@@ -523,7 +523,7 @@ const Register = ({ theme = "light" }) => {
                                             <input
                                                 type="text"
                                                 name="firstName"
-                                                placeholder="John"
+                                                placeholder="Name"
                                                 value={formData.firstName}
                                                 onChange={handleChange}
                                                 required
@@ -541,7 +541,7 @@ const Register = ({ theme = "light" }) => {
                                             <input
                                                 type="text"
                                                 name="lastName"
-                                                placeholder="Doe"
+                                                placeholder="Last Name"
                                                 value={formData.lastName}
                                                 onChange={handleChange}
                                                 required
